@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cover-letter-generator-config
+data:
+  # Add any configuration data here if needed
+  # For example:
+  # MODEL_PATH: "/app/models/cover_letter_model.pkl"

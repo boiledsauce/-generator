@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cover-letter-generator-deployment
+spec:
+  replicas: 3 # Restored multiple replicas
+  selector:
+    matchLabels:
+      app: cover-letter-generator
+  template:
+    metadata:
+      labels:
+        app: cover-letter-generator
+    spec:
+      containers:
+        - name: cover-letter-generator
+          image: cover-letter-generator-image:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
+          envFrom:
+            - configMapRef:
+                name: cover-letter-generator-config
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+          # If you need to mount any volumes, add them here
+          # volumeMounts:
+          #   - name: models
+          #     mountPath: /app/models
+      # volumes:
+      #   - name: models
+      #     persistentVolumeClaim:
+      #       claimName: models-volume-claim
