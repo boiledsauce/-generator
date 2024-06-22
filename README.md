@@ -27,15 +27,18 @@ To set up the cover letter generation service, follow these steps:
 
 2. Navigate to the project directory:
    create a `secret.yaml` inside of `k8s/` with your openAI API key
+
+   ```
    apiVersion: v1
    kind: Secret
    metadata:
    name: openai-api-secret
    type: Opaque
    stringData:
-   api-key: `<YOUR_API_KEY_HERE>`
+   api-key: `<YOUR_API_KEY_HERE>
+   ```
 
-3. Create a folder called `cover_letters` in the main directory
+3. Create a folder called `cover_letters` in the main directory.
    Paste all your written cover_letters that you have written so far that you deem good enough
 
 4. kubectl config use-context my-cluster-name
