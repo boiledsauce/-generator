@@ -1,5 +1,20 @@
 # cover-letter-generation-service
 
+## Introduction
+
+This is a service that will take a string of the job description of your likings, along with the
+
+## Prerequisites
+
+The prerequisites for setting up the cover letter generation service are as follows:
+
+- Kubernetes running of any kind. I use Kubernetes In Docker (KIND).
+- A Kubernetes cluster up and running
+- Docker
+- An OpenAI API-Key
+
+Make sure you have these prerequisites installed before proceeding with the setup.
+
 ## Setup
 
 To set up the cover letter generation service, follow these steps:
@@ -11,25 +26,25 @@ To set up the cover letter generation service, follow these steps:
    ```
 
 2. Navigate to the project directory:
-   create a secret.yaml inside of k8s/ with your openAI api key
+   create a `secret.yaml` inside of `k8s/` with your openAI API key
    apiVersion: v1
    kind: Secret
    metadata:
    name: openai-api-secret
    type: Opaque
    stringData:
-   api-key: <YOUR_API_KEY_HERE>
+   api-key: `<YOUR_API_KEY_HERE>`
 
-3. Create a folder called cover_letters in the main directory
+3. Create a folder called `cover_letters` in the main directory
    Paste all your written cover_letters that you have written so far that you deem good enough
 
-4. Run the k8s setup
+4. kubectl config use-context my-cluster-name
 
-```
-./deploy.sh
-```
+5. Run the k8s setup
 
-5.
+`./deploy.sh`
+
+6.
 
 Set up the ports for external access:
 `
@@ -37,6 +52,7 @@ kubectl <pod_name> port-forward 8000:8000
 
 ```
 
+7.
 Access the endpoint:
 POST http://127.0.0.1:8000/generate
 
