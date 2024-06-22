@@ -2,7 +2,13 @@
 
 ## Introduction
 
-This is a service that will take a string of the job description of your likings, along with the
+This is a service that will take a string of the job description of your likings, along with your uploaded cover letters that you place in the folder cover_letters as .txt files.
+
+It will then generate with the help of GPT-4-Turbo a brand-new cover-letter in respect to:
+
+- Your CV
+- Your writing style in the cover letters you have already written
+- The job's description
 
 ## Prerequisites
 
@@ -41,7 +47,7 @@ To set up the cover letter generation service, follow these steps:
 3. Create a folder called `cover_letters` in the main directory.
    Paste all your written cover_letters that you have written so far that you deem good enough
 
-4. kubectl config use-context my-cluster-name
+4. `kubectl config use-context my-cluster-name`
 
 5. Run the k8s setup
 
