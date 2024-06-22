@@ -2,8 +2,6 @@
 
 ## Setup
 
-## Setup
-
 To set up the cover letter generation service, follow these steps:
 
 1. Clone the repository:
