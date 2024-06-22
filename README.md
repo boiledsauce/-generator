@@ -44,24 +44,27 @@ To set up the cover letter generation service, follow these steps:
 
 `./deploy.sh`
 
-6.
+6. Set up the ports for external access:
 
-Set up the ports for external access:
-`
+```
 kubectl <pod_name> port-forward 8000:8000
 
 ```
 
-7.
-Access the endpoint:
-POST http://127.0.0.1:8000/generate
+7.  Access the endpoint:
+    POST http://127.0.0.1:8000/generate
 
 Body should contain a json object of:
+
 ```
 
 - cv: A large string of your content of your CV
 - job_description: A large string of the job's descriptio
 
 ```
+
 Response: 200 OK - A generated Cover letter as a string
+
+```
+
 ```
