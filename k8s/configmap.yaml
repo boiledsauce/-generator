@@ -3,6 +3,5 @@ kind: ConfigMap
 metadata:
   name: cover-letter-generator-config
 data:
-  # Add any configuration data here if needed
-  # For example:
-  # MODEL_PATH: "/app/models/cover_letter_model.pkl"
+  COVER_LETTERS_DIR: "/app/cover_letters"
+  # Add any other configuration key-value pairs here

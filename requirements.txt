@@ -1,5 +1,7 @@
-fastapi
-uvicorn
+fastapi==0.101.0
+uvicorn==0.23.2
 nltk
-pydantic
+pydantic==2.1.1
 pydantic-settings
+openai==0.27.8
+fpdf==1.7.2

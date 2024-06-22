@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: cover-letter-generator-deployment
 spec:
-  replicas: 3 # Restored multiple replicas
+  replicas: 3
   selector:
     matchLabels:
       app: cover-letter-generator
@@ -21,6 +21,14 @@ spec:
           envFrom:
             - configMapRef:
                 name: cover-letter-generator-config
+          env:
+            - name: OPENAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: openai-api-secret
+                  key: api-key
+            - name: COVER_LETTERS_DIR
+              value: "/app/cover_letters"
           resources:
             requests:
               cpu: 100m
@@ -28,11 +36,10 @@ spec:
             limits:
               cpu: 500m
               memory: 512Mi
-          # If you need to mount any volumes, add them here
-          # volumeMounts:
-          #   - name: models
-          #     mountPath: /app/models
-      # volumes:
-      #   - name: models
-      #     persistentVolumeClaim:
-      #       claimName: models-volume-claim
+          volumeMounts:
+            - name: cover-letters
+              mountPath: /app/cover_letters
+      volumes:
+        - name: cover-letters
+          configMap:
+            name: cover-letters-config

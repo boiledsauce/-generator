@@ -1,7 +1,6 @@
 from src.models.cover_letter_model import CoverLetterModel
-from src.services.preprocessor import preprocess_text
+from typing import List
 
-def generate_cover_letter(job_description: str) -> str:
-    preprocessed_job = preprocess_text(job_description)
-    model = CoverLetterModel()
-    return model.generate(preprocessed_job)
+def generate_cover_letter(job_description: str, cover_letters: List[str], api_key: str, cv: str) -> str:
+    model = CoverLetterModel(api_key)
+    return model.generate(job_description, cover_letters, cv)
