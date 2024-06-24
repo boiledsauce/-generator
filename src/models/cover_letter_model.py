@@ -44,7 +44,7 @@ class CoverLetterModel:
         """
 
         response = openai.ChatCompletion.create(
-            model="gpt-4-1106-preview",  # This is GPT-4 Turbo
+            model="gpt-4o",  # This is GPT-4 Turbo
             messages=[
                 {"role": "system", "content": self.system_prompt},
                 {"role": "user", "content": prompt}
